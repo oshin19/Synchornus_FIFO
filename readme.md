@@ -12,23 +12,35 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 ---
 
-## 📁 Files Included
-| File Name        | Description                                |
-|------------------|--------------------------------------------|
-| `sync_fifo.v`     | Main FIFO module                          |
-| `sync_fifo_tb.v`  | Testbench for simulation                  |
-| `waveform.png`    | Simulation waveform output                |
-| `README.md`       | Project documentation                     |
+## 🧾 Variables Table
+| Variable     | Type              | Description                                    |
+|--------------|-------------------|------------------------------------------------|
+| `data_in`    | Input [width-1:0] | Data to be written into FIFO                   |
+| `clk`        | Input             | System clock                                   |
+| `wr_en`      | Input             | Write enable signal                            |
+| `rd_en`      | Input             | Read enable signal                             |
+| `reset`      | Input             | Synchronous reset                              |
+| `data_out`   | Output [width-1:0]| Data read from FIFO                            |
+| `full`       | Output            | Flag indicating FIFO is full                   |
+| `empty`      | Output            | Flag indicating FIFO is empty                  |
+| `wr_ptr`     | Internal          | Write pointer                                  |
+| `rd_ptr`     | Internal          | Read pointer                                   |
+| `count`      | Internal          | Number of elements currently in FIFO           |
 
 ---
 
-## 📐 FIFO Block Diagram
+##  FIFO Block Diagram
 
-![FIFO Diagram](fifo_block.png)
+![FIFO Diagram](sync_FIFO.jpg)
+
+- `wr_en`, `data_in`: Write interface
+- `rd_en`, `data_out`: Read interface
+- `clk`, `rst_n`: Clock & active-high reset
+- `full`, `empty`: Status indicators
 
 ---
 
-## 🔧 Parameters
+##  Parameters
 | Parameter | Description               | Default |
 |-----------|---------------------------|---------|
 | `depth`   | Number of FIFO registers  | 8       |
@@ -36,7 +48,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 ---
 
-## 🧠 Internal Architecture
+##  Internal Architecture
 - **Write pointer (wr_ptr)** and **Read pointer (rd_ptr)** control data movement
 - **Count register** keeps track of how many entries are stored
 - **`full`** is high when FIFO is completely filled
@@ -44,61 +56,8 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 
 
-
-
 ---
 
-## 🧪 Testbench Strategy
-- Write 6 values to FIFO
-- Then read all values one by one
-- Observe `full`, `empty`, and `data_out`
-
----
-
-## 📷 Waveform & Testbench Explanation
-
-### ✅ Testbench Functionality
-
-The testbench (`sync_fifo_tb.v`) is written to **verify the correct operation** of the synchronous FIFO module through **controlled input stimuli and observations of output responses**.
-
-#### 🔁 Clock Generation
-```verilog
-initial begin
-  clk = 0;
-  forever #5 clk = ~clk;
-end
-```
-- A **10ns period clock** (100 MHz frequency) is generated using a `forever` loop with a toggle every 5ns.
-
-#### 🔄 Reset Phase
-```verilog
-reset = 1;
-#10;
-reset = 0;
-```
-- FIFO is **synchronously reset** for the first 10ns to clear all internal registers like `wr_ptr`, `rd_ptr`, `count`, and flags (`full`, `empty`).
-
-#### ✍ Write Operation
-```verilog
-wr_en = 1;
-data_in = 8'd0; #10;
-...
-data_in = 8'd5; #10;
-```
-- 6 data values (`00` to `05`) are **written sequentially** into the FIFO buffer.
-- `wr_en` is asserted for 6 clock cycles, and `data_in` is updated at every cycle.
-
-#### 📤 Read Operation
-```verilog
-wr_en = 0;
-#10;
-rd_en = 1;
-#70;
-```
-- After writing, there's a **gap cycle** (realistic timing consideration) before reading begins.
-- `rd_en` is enabled, and FIFO **reads out all 6 stored values** one by one at each positive clock edge.
-
----
 
 ### 📈 Waveform Analysis
 
@@ -109,7 +68,7 @@ rd_en = 1;
   - It **outputs values from 00 to 05**, maintaining correct FIFO behavior (First-In-First-Out).
 - `full` remains low throughout because only 6/8 slots are used.
 - `empty` is `1` at the start (FIFO empty) and becomes `0` after data is written.
-- At the end of read phase, `empty` becomes `1` again, indicating **FIFO is drained**.
+- At the end of read phase, `empty` becomes `1` again, indicating **FIFO is empty**.
 
 ✅ This confirms:
 - Proper `write` and `read` pointer increment.
