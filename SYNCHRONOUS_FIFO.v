@@ -25,8 +25,8 @@ r_ptr <=0;
 full <=0;
 empty <=1;
 count <=0;
-
 end
+  
 else begin
 if(wr_en&&!full) begin
 fifo[w_ptr] <=data_in;
