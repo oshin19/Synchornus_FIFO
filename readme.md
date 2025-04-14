@@ -1,10 +1,10 @@
-# 🔁 Synchronous FIFO (First-In-First-Out) Memory Buffer
+# Synchronous FIFO (First-In-First-Out) Memory Buffer
 
 This project implements a **parameterized synchronous FIFO** (First-In-First-Out) buffer using **Verilog HDL**. FIFO is a critical component in digital systems for temporary data storage, especially useful in **pipelining, buffering, and interfacing between blocks with different clock domains**.
 
 ---
 
-## 📌 Features
+##  Features
 - **Parameterizable** FIFO depth and data width
 - **Synchronous read and write operations**
 - Automatic management of **full** and **empty** flags
@@ -12,7 +12,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 ---
 
-## 🧾 Variables Table
+## Variables Table
 | Variable     | Type              | Description                                    |
 |--------------|-------------------|------------------------------------------------|
 | `data_in`    | Input [width-1:0] | Data to be written into FIFO                   |
@@ -59,7 +59,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 ---
 
 
-### 📈 Waveform Analysis
+### Waveform Analysis
 
 ![Waveform](waveform.png)
 
@@ -70,13 +70,13 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 - `empty` is `1` at the start (FIFO empty) and becomes `0` after data is written.
 - At the end of read phase, `empty` becomes `1` again, indicating **FIFO is empty**.
 
-✅ This confirms:
+ This confirms:
 - Proper `write` and `read` pointer increment.
 - Accurate assertion of `full` and `empty` flags.
 - Sequential, reliable data storage and retrieval in FIFO order.
 
 ---
   
-## 🛠 Tools Used
+##  Tools Used
 - Xilinx Vivado (for writing code, simulation, and waveform analysis)
 
