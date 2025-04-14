@@ -1,6 +1,6 @@
 # Synchronous FIFO (First-In-First-Out) Memory Buffer
 
-This project implements a **parameterized synchronous FIFO** (First-In-First-Out) buffer using **Verilog HDL**. FIFO is a critical component in digital systems for temporary data storage, especially useful in **pipelining, buffering, and interfacing between blocks with different clock domains**.
+This project implements a **parameterized synchronous FIFO** (First-In-First-Out) buffer using **Verilog HDL**. In Synchronous FIFO, data read and write operations use the same clock frequency.
 
 ---
 
