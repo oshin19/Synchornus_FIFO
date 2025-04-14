@@ -29,4 +29,4 @@ This project implements a parameterized synchronous FIFO in Verilog with a compl
 - Well-commented code for learning
 
 ## 🔗 Author
-Designed by [Your Name]
+Designed by Oshin Sharma
