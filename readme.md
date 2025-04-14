@@ -1,6 +1,6 @@
 # Synchronous FIFO (First-In-First-Out) Memory Buffer
 
-This project implements a **parameterized synchronous FIFO** (First-In-First-Out) buffer using **Verilog HDL**. FIFO is a critical component in digital systems for temporary data storage, especially useful in **pipelining, buffering, and interfacing between blocks with different clock domains**.
+This project implements a **parameterized synchronous FIFO** (First-In-First-Out) buffer using **Verilog HDL**. In Synchronous FIFO, data read and write operations use the same clock frequency.
 
 ---
 
@@ -23,8 +23,8 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 | `data_out`   | Output [width-1:0]| Data read from FIFO                            |
 | `full`       | Output            | Flag indicating FIFO is full                   |
 | `empty`      | Output            | Flag indicating FIFO is empty                  |
-| `wr_ptr`     | Internal          | Write pointer                                  |
-| `rd_ptr`     | Internal          | Read pointer                                   |
+| `w_ptr`     | Internal          | Write pointer                                  |
+| `r_ptr`     | Internal          | Read pointer                                   |
 | `count`      | Internal          | Number of elements currently in FIFO           |
 
 ---
@@ -48,7 +48,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 ---
 
 ##  Internal Architecture
-- **Write pointer (wr_ptr)** and **Read pointer (rd_ptr)** control data movement
+- **Write pointer (w_ptr)** and **Read pointer (r_ptr)** control data movement
 - **Count register** keeps track of how many entries are stored
 - **`full`** is high when FIFO is completely filled
 - **`empty`** is high when FIFO has no data
