@@ -3,6 +3,17 @@
 ## 🚀 Overview
 This project implements a parameterized synchronous FIFO in Verilog with a complete testbench. It demonstrates core digital logic principles like sequential logic, memory interfacing, and pointer-based data handling.
 
+## 🧠 FIFO Block Diagram
+
+Below is the architectural representation of a synchronous FIFO with 8-depth buffer and separate read/write pointers.
+
+![FIFO Diagram](./fifo.png)
+
+- `w_en`, `data_in`: Write interface
+- `r_en`, `data_out`: Read interface
+- `clk`, `rst_n`: Clock & active-low reset
+- `full`, `empty`: Status indicators
+
 ## 📂 Files
 - `sync_fifo.v` – Main FIFO design file
 - `sync_fifo_tb.v` – Testbench to simulate FIFO operations
