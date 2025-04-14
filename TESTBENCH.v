@@ -37,7 +37,7 @@ module sync_fifo_tb;
     rd_en = 0;
    
 
-    #10;
+    #20;
     reset = 0;
 
     
@@ -68,3 +68,4 @@ module sync_fifo_tb;
   end
 
 endmodule
+
