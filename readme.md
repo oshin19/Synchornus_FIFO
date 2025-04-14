@@ -35,7 +35,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 - `wr_en`, `data_in`: Write interface
 - `rd_en`, `data_out`: Read interface
-- `clk`, `rst_n`: Clock & active-high reset
+- `clk`, `reset`: Clock & active-high reset
 - `full`, `empty`: Status indicators
 
 ---
