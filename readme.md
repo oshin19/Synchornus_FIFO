@@ -23,8 +23,8 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 | `data_out`   | Output [width-1:0]| Data read from FIFO                            |
 | `full`       | Output            | Flag indicating FIFO is full                   |
 | `empty`      | Output            | Flag indicating FIFO is empty                  |
-| `wr_ptr`     | Internal          | Write pointer                                  |
-| `rd_ptr`     | Internal          | Read pointer                                   |
+| `w_ptr`     | Internal          | Write pointer                                  |
+| `r_ptr`     | Internal          | Read pointer                                   |
 | `count`      | Internal          | Number of elements currently in FIFO           |
 
 ---
