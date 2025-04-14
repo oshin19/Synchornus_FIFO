@@ -63,7 +63,6 @@ module sync_fifo_tb;
     rd_en = 1;
     #80; 
 
-    
     $finish;
   end
 
