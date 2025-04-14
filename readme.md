@@ -29,9 +29,9 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 ---
 
-##  FIFO Block Diagram
+##  FIFO Diagram
 
-![FIFO Diagram](sync_FIFO.jpg)
+![FIFO Diagram](IMAGES/sync_FIFO.jpg)
 
 - `wr_en`, `data_in`: Write interface
 - `rd_en`, `data_out`: Read interface
@@ -61,7 +61,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 ### Waveform Analysis
 
-![Waveform](waveform.png)
+![Waveform](IMAGES/waveform.png)
 
 - The waveform shows **`data_in` from 00 to 05 being written** while `wr_en` is high.
 - `data_out` starts producing valid values after read enable (`rd_en`) is asserted:
