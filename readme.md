@@ -51,7 +51,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 - **Write pointer (w_ptr)** and **Read pointer (r_ptr)** control data movement
 - **Count register** keeps track of how many entries are stored
 - **`full`** is high when FIFO is completely filled
-- **`empty`** is high when FIFO has no data
+- **`empty`** is high when FIFO contains no data
 
 
 
