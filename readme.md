@@ -31,7 +31,7 @@ This project implements a **parameterized synchronous FIFO** (First-In-First-Out
 
 ##  FIFO Diagram
 
-![FIFO Diagram](IMAGES/Synchornus_fifo.jpg)
+![FIFO Diagram](IMAGES/Synchronous_fifo.jpg)
 
 - `wr_en`, `data_in`: Write interface
 - `rd_en`, `data_out`: Read interface
